@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
 
     private HashMap<String, String> lyrics;
 
-    private ScrollTextView lyricsView;
+    private TextView lyricsView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
         songCurrentDurationLabel = (TextView) findViewById(R.id.songCurrentDurationLabel);
         songTotalDurationLabel = (TextView) findViewById(R.id.songTotalDurationLabel);
 
-        lyricsView = (ScrollTextView) findViewById(R.id.lyrics);
+        lyricsView = (TextView) findViewById(R.id.lyrics);
 
         // Mediaplayer
         mp = MediaPlayer.create(this, R.raw.kareyole);
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
                         mp.pause();
                         // Changing button image to play button
                         btnPlay.setImageResource(R.drawable.btn_play);
-                        lyricsView.pauseScroll();
+                        //lyricsView.pauseScroll();
                     }
                 } else {
                     // Resume song
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
                         mp.start();
                         // Changing button image to pause button
                         btnPlay.setImageResource(R.drawable.btn_pause);
-                        lyricsView.resumeScroll();
+                        //lyricsView.resumeScroll();
                     }
                 }
 
@@ -266,19 +266,33 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
 
     private void initializeLyrics() {
         lyrics = new HashMap<>();
-        lyrics.put("0:27", "Kareyole Kareva ole Kare maadi Karedole");
-        lyrics.put("0:32", "Karadalli Kalama hididu Kari shaayi Baredole ");
-        lyrics.put("0:36", "Kallina KoLalali Kalarava nudisi Kayyanu beesi KaredoLe");
-        lyrics.put("0:41", "Kanninge KaaNada Kaagadadalli Kunchadi Kavyava KoredoLe");
-        lyrics.put("0:46", "Kareyole Kareva ole Kare maadi Karedole");
-        lyrics.put("1:00", "Kanakaangi Kayyallondu Kanchina Kodapaana");
-        lyrics.put("1:06", "Kere neera Kudiyodakku KaTuvaada KadivaaNa");
-        lyrics.put("1:14", "Kere dande Kadeyallello Kunthone Kadu JaaNa Athi KsheeNa smrithiyuLLona ");
-        lyrics.put("1:21", "Kendaavare LakushaaNa Kempaada Kamala Kandu Kesaralle KalethoLe ");
-        lyrics.put("1:29", "Kshanavella Kruthaka Katheyale KaLeyoda KalithoLe Kallina KoLalali Kalarava ");
-        lyrics.put("1:36", "nudisi Kayyanu beesi KaredoLe Kanninge KaaNada Kaagadadalli Kunchadi ");
-        lyrics.put("1:42", "Kavyava KoredoLe Kareyole Kareva ole Kare maadi Karedole Karadalli Kalama ");
-        lyrics.put("1:51", "hididu Kari shaayi Baredole");
+        lyrics.put("0:01", "");
+        lyrics.put("0:04", "");
+        lyrics.put("0:07", "");
+        lyrics.put("0:10", "");
+        lyrics.put("0:13", "");
+        lyrics.put("0:16", "");
+        lyrics.put("0:19", "");
+        lyrics.put("0:22", "");
+        lyrics.put("0:25", "");
+        lyrics.put("0:26", "ಕರೆಯೋಲೆ ಕರೆವ ಓಲೆ ಕರೆ ಮಾಡಿ ಕರೆದೋಲೆ");
+        lyrics.put("0:31", "ಕರದಲ್ಲಿ ಕಲಮ ಹಿಡಿದು ಕರಿಶಾಯಿ ಬರೆದೋಲೆ");
+        lyrics.put("0:36", "ಕಲ್ಲಿನ ಕೊಳಲಲಿ ಕಲರವ ನುಡಿಸಿ ಕೈಯನು ಬೀಸಿ ಕರೆದೋಳೆ");
+        lyrics.put("0:41", "ಕಣ್ಣಿಗೆ ಕಾಣದ ಕಾಗದದಲ್ಲಿ ಕು೦ಚದಿ ಕಾವ್ಯವ ಕೊರೆದೋಲೆ....");
+        lyrics.put("0:46", "ಕರೆಯೋಲೆ ಕರೆವ ಓಲೆ ಕರೆ ಮಾಡಿ ಕರೆದೋಲೆ");
+        lyrics.put("0:50", "");
+        lyrics.put("0:53", "");
+        lyrics.put("0:55", "");
+        lyrics.put("0:58", "");
+        lyrics.put("1:00", "ಕನಕಾ೦ಗಿ ಕೈಯಲ್ಲೊ೦ದು ಕ೦ಚಿನ ಕೊಡಪಾನ");
+        lyrics.put("1:05", "ಕೆರೆನೀರ ಕುಡಿಯೋದಕ್ಕು ಕಟುವಾದ ಕಡಿವಾಣ");
+        lyrics.put("1:14", "ಕೆರೆದ೦ಡೆ ಕಡೆಯಲ್ಲೆಲ್ಲೋ ಕು೦ತೋನೆ ಕಡುಜಾಣ, ಅತೀ ಕ್ಷೀಣ ಸ್ಮೃತಿಯುಳ್ಳೋನ ");
+        lyrics.put("1:21", "ಕೆ೦ದಾವರೆ ಲಕುಷಾಣ,ಕೆ೦ಪಾದ ಕಮಲ ಕ೦ಡು ಕೆಸರಲ್ಲೇ ಕಲೆತೋಳೆ ");
+        lyrics.put("1:29", "ಕ್ಷಣವೆಲ್ಲ ಕೃತಕಕಥೆಯಲಿ ಕಳೆಯೋದ ಕಲಿತೋಳೆ, ಕಲ್ಲಿನ ಕೊಳಲಲಿ ಕಲರವ");
+        lyrics.put("1:36", "ನುಡಿಸಿ ಕೈಯನು ಬೀಸಿ ಕರೆದೋಳ, ೆಕಣ್ಣಿಗೆ ಕಾಣದ ಕಾಗದದಲ್ಲಿ ಕು೦ಚದಿ ");
+        lyrics.put("1:42", "ಕಾವ್ಯವ ಕೊರೆದೋಲ ಕರೆಯೋಲೆ ಕರೆವ ಓಲೆ ಕರೆ ಮಾಡಿ ಕರೆದೋಲ ");
+        lyrics.put("1:48", "ಕರದಲ್ಲಿ ಕಲಮ ಹಿಡಿದು ಕರಿಶಾಯಿ ಬರೆದೋಲೆ");
+        lyrics.put("1:52", "");
     }
 
     /**
@@ -321,7 +335,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
             songProgressBar.setMax(100);
 
             //lyricsView.setRndDuration(mp.getDuration());
-            lyricsView.startScroll();
+            //lyricsView.startScroll();
 
             // Updating progress bar
             updateProgressBar();
